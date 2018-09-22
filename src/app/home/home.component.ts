@@ -66,13 +66,15 @@ export class HomeComponent implements OnInit {
   }
 
   add(star) {
-    this.rs.saveStarring(star).subscribe();     // call service to put the selected repository to star list
-    this.updateStarring();
+    this.rs.saveStarring(star).subscribe(() => { // call service to put the selected repository to star list
+      this.updateStarring();
+    });     
   }
 
   remove(star) {
-    this.rs.deleteStarring(star).subscribe();   // call service to delete the selected repository from star list
-    this.updateStarring();
+    this.rs.deleteStarring(star).subscribe(() => {   // call service to delete the selected repository from star list
+      this.updateStarring();
+    }); 
   }
 
   starredList(item, starred) {

@@ -24,15 +24,15 @@ export class RepoService {
   }
 
   getStarring(): Observable<Starring[]> {
-    return this.http.get<Starring[]>(`${this.url}users/ryufty/starred`);
+    return this.http.get<Starring[]>(`${this.url}user/starred`);
   }
 
   saveStarring(star: Starring): Observable<any> {
-    return this.http.put<any>(`${this.url}users/ryufty/starred/` + star.full_name, star);
+    return this.http.put<any>(`${this.url}user/starred/` + star.full_name, star);
   }
 
   deleteStarring(star: any): Observable<any> {
-    return this.http.delete<any>(`${this.url}users/ryufty/starred/` + star.full_name, star);
+    return this.http.delete<any>(`${this.url}user/starred/` + star.full_name, star);
   }
 
 }

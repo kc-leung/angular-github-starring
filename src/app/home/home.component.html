@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="col-sm-6 col-style">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+        <div class="col-sm-9 pr-0">
+          <input class="form-control borders" formControlName="searchRepo" placeholder="Search">
+        </div>
+        <div class="col-sm-3">
+          <input type="submit" class="btn btn-primary" value="Search">
+        </div>
+      
+      <div class="col-sm-12 pt-5">
+        <div class="table-responsive">
+          <table class="table-style">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Language</th>
+                <th>Latest tag</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody *ngIf='repositories && clear(searchRepo.value)'>
+              <tr *ngFor='let i of repositories.items'>
+                <a href="{{i.html_url}}"><td class="repo">{{i.full_name}}</td></a>
+                <td>{{i.language}}</td>
+                <td>{{i.latestTag}}</td>
+                <td class="add-remove-style" *ngIf='starredList(i, starring) === false' (click)='add(i)'>Add</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div></form>
+  </div>
+<!-- Starring list -->
+  <div class="col-sm-6 bg-gray col-style">
+      <div class="table-responsive">
+        <table class="table-style">
+          <thead>
+            <tr>
+              <th class="lol">Name</th>
+              <th>Language</th>
+              <th>Latest tag</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody *ngIf='starring'>
+            <tr *ngFor='let s of starring'>
+              <a href="{{s.html_url}}"><td class="repo">{{s.full_name}}</td></a>
+              <td>{{s.language}}</td>
+              <td>{{s.latestTag}}</td>
+              <td class="add-remove-style" (click)='remove(s)'>Remove</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div> 
+
+

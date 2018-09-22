@@ -12,6 +12,7 @@ import { ContentComponent } from './content/content.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { RepoService } from './data/repo.service';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AppRoutingModule
   ],
   providers: [
+    RepoService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,

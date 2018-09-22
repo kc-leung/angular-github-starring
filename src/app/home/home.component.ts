@@ -66,7 +66,6 @@ export class HomeComponent implements OnInit {
   }
 
   add(star) {
-    console.log(star);
     this.rs.saveStarring(star).subscribe();     // call service to put the selected repository to star list
     this.updateStarring();
   }

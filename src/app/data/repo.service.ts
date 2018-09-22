@@ -24,7 +24,7 @@ export class RepoService {
   }
 
   getStarring(): Observable<Starring[]> {
-    return this.http.get<Starring[]>(`${this.url}users/ryufty/starred`);
+    return this.http.get<Starring[]>(`${this.url}users/ryufty/starred?` + (new Date).getMilliseconds());
   }
 
   saveStarring(star: Starring): Observable<any> {

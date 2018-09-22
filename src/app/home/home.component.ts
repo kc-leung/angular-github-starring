@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
   onSubmit() {    
     this.rs.getRepositories(this.searchRepo.value).subscribe(data => {   // call service to render list of 10 repositories
       this.repositories = data;
-      console.log(this.repositories);
 
       this.getLastestTag(this.repositories.items);       // getting lastest tag for search table
     });
@@ -51,7 +50,6 @@ export class HomeComponent implements OnInit {
   updateStarring() {        
     this.rs.getStarring().subscribe(data => {     // call service to render starring list
       this.starring = data;
-      console.log(this.starring);
 
       this.getLastestTag(this.starring);    // getting lastest tag for starring table
     });

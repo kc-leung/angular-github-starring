@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {       // this class is to auth my token everytime I make a HTTP request
 
-  token = '56999d8c3fcbddddec80364a3e69fb15d41f820b';
+  token = '4f354421da42b16a768f8c562d96821862aef0e8';
 
   constructor(public auth: RepoService) {}
 
